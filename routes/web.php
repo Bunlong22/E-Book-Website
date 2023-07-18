@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Test;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+Route::get('/testmodel', function () {
+    $testing = Test::findOrFail(1);
+    echo ($testing->name);
+    echo "<br/>" . ($testing->description);
+    echo "<br/>" . ($testing->done);
 });
