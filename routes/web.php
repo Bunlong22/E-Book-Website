@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Test;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,4 +23,12 @@ Route::get('/testmodel', function () {
     echo ($testing->name);
     echo "<br/>" . ($testing->description);
     echo "<br/>" . ($testing->done);
+});
+Route::get('/usertest',function(){
+    $user = User::findOrFail(1);
+    dd($user);
+});
+Route::get('/querytest',function(){
+    $user = DB::table('test')->where('id', 1)->first();
+    dd($user);
 });
