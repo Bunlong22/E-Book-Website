@@ -24,11 +24,12 @@ Route::get('/testmodel', function () {
     echo "<br/>" . ($testing->description);
     echo "<br/>" . ($testing->done);
 });
-Route::get('/usertest',function(){
+Route::get('/usertest', function () {
     $user = User::findOrFail(1);
     dd($user);
 });
-Route::get('/querytest',function(){
+// Lavarel query builder
+Route::get('/querytest', function () {
     $user = DB::table('test')->where('id', 1)->first();
     dd($user);
 });
